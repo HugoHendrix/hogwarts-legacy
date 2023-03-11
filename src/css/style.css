@@ -1,0 +1,205 @@
+/* FONTE POPPINS */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap');
+
+/* RESET CSS */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+ul {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    max-width: 1280px;
+    font-size: 1.6rem;
+    margin: 2rem;
+    padding: 2rem;
+}
+
+main:after {
+    content:'';
+    min-height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.548);
+    z-index: -1;
+}
+
+
+.conteudo {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    justify-content: space-evenly;
+}
+
+.informacoes .logo {
+    max-width: 350px;
+    filter: invert(1);
+    margin-bottom: 80px;
+    
+}
+
+.informacoes .descricao {
+    width: 49%;
+    color: white;
+    font-size: 2.4rem;
+    line-height: 3rem;
+
+}
+
+
+.botoes-carrossel {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    
+}
+
+.botoes-carrossel .botao {
+width: 15px;
+height: 15px;
+border-radius: 50%;
+border: 2px solid transparent;
+cursor: pointer;
+border-color: white;
+margin-top: 50px;
+}
+
+.botoes-carrossel .botao.selecionado {
+    background-color: #1d8346;
+        
+}
+
+.menu-lateral {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    gap: 20px;
+}
+
+.menu-lateral ul {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.menu-lateral .icone {
+    width: 30px;
+    filter: invert(1);  
+    transition: 0.3s ease-in-out;
+}
+
+.menu-lateral .icone:hover {
+    transform: scale(1.2);
+}
+
+/* ESTILIZAÇÃO DO CARROSSEL  */
+
+.carrossel {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: -1;
+
+}
+
+.carrossel .imagem {
+    height: 100vh;
+    width: 100%;
+    object-fit: cover;
+    display: none;
+    animation: mudarImagem 0.7s;   /* NOME DA ANIMAÇÃO*/
+}   
+
+
+.carrossel .imagem.ativa {
+    display: block;
+}
+
+/* ANIMAÇÃO PARA SUAVIZAR A TROCA DE IMAGENS */
+
+@keyframes mudarImagem{
+    from {
+        opacity: 0.85;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+/* RESPOSIVIDADE  */
+
+@media (max-width:1280px) {
+    body {
+        padding: 0 40px;
+  }
+
+}
+
+@media (max-width: 768px) {
+    .informacoes {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .informacoes .descricao {
+        width: 60%;
+        text-align: center;
+    }
+}
+
+@media (max-width:425px) {
+    .informacoes .logo {
+        max-width: 300px;
+    }
+    .informacoes .descricao {
+        width: 100%;
+    }
+
+    .menu-lateral {
+        position: static;
+        min-height: auto;
+        width: 100%;
+        margin-top: 50px;        
+    }
+
+    .menu-lateral ul {
+        flex-direction: row;
+    }
+
+    .conteudo {
+        min-height: 70vh;
+        gap: 50px;
+    }
+
+    body {
+        padding: 2rem;
+    }
+}
+
